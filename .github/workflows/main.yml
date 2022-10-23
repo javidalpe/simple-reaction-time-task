@@ -3,13 +3,13 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Deploy experiment to Cognition
     steps:
-      - name: Hello world action step
-        id: hello
-        uses: javidalpe/cognition-run-deploy-action@1.2.1
+      - name: Cognition.run deploy action
+        id: deploy
+        uses: javidalpe/cognition-run-deploy-action@v1.2.2
         with:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        run: echo "The public link to the task is ${{ steps.deploy.outputs.link }}"
