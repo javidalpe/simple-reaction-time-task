@@ -7,9 +7,9 @@ jobs:
     steps:
       - name: Cognition.run deploy action
         id: deploy
-        uses: javidalpe/cognition-run-deploy-action@v1.2.3
+        uses: javidalpe/cognition-run-deploy-action@v1.2.4
         with:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
-      - name: Get the output time
+      - name: Get link to the experiment
         run: echo "The public link to the task is ${{ steps.deploy.outputs.link }}"
