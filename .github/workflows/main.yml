@@ -8,9 +8,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Cognition.run deploy action
         id: deploy
-        uses: javidalpe/cognition-run-deploy-action@v1.3.0
+        uses: javidalpe/cognition-run-deploy-action@v1.4.0
         with:
-          who-to-greet: 'Mona the Octocat'
-      # Use the output from the `hello` step
+          PERSONAL_ACCESS_TOKEN: ${{PERSONAL_ACCESS_TOKEN}}
       - name: Get link to the experiment
         run: echo "The public link to the task is ${{ steps.deploy.outputs.link }}"
