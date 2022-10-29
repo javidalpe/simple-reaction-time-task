@@ -1,15 +1,13 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  cognition-deploy:
     runs-on: ubuntu-latest
     name: Deploy experiment to Cognition
     steps:
       - uses: actions/checkout@v3
-      - name: Cognition.run deploy action
-        id: deploy
-        uses: javidalpe/cognition-run-deploy-action@v2.3.0
+      - uses: javidalpe/cognition-deploy-action@0.0.0
         with:
-          PERSONAL_ACCESS_TOKEN: ${{secrets.PERSONAL_ACCESS_TOKEN}}
-      - name: Get link to the experiment
-        run: echo "The public link to the task is ${{ steps.deploy.outputs.link }}"
+          personal-access-token: ${{secrets.PERSONAL_ACCESS_TOKEN}}
+          jspsych-version: 6.3.0
+      - run: echo "The public link to the task is ${{ steps.deploy.outputs.link }}"
